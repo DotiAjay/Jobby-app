@@ -1,0 +1,14 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+}
+.skillImg {
+  height: 30px;
+  margin: 10px;
+}
+.skillName {
+  color: #ffffff;
+  font-family: 'Roboto';
+}
+

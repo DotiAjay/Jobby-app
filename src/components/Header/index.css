@@ -1,0 +1,18 @@
+.headerImg {
+  height: 50px;
+}
+.HeaderList {
+  display: flex;
+  flex-direction: row;
+}
+.headerItem {
+  color: #ffffff;
+  margin: 10px;
+}
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #2c364c;
+}

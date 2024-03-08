@@ -1,0 +1,50 @@
+.jobMainBg {
+  display: flex;
+  flex-direction: row;
+}
+.CompanyLogo {
+  height: 40px;
+  margin: 10px;
+}
+.jobTitle {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 10px;
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-weight: 500;
+}
+.Bg {
+  background-color: #2c364c;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.star {
+  color: #fbbf24;
+}
+.rating {
+  color: #ffffff;
+  font-family: 'roboto';
+  font-weight: 300;
+  margin-left: 10px;
+}
+.locationCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.location {
+  display: flex;
+  flex-direction: row;
+}
+.locationText {
+  color: #ffffff;
+  font-family: 'Roboto';
+  margin: 10px;
+  padding-bottom: 10px;
+}
+.text {
+  color: #ffffff;
+  font-family: 'roboto';
+}

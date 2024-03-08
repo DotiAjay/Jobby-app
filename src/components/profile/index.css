@@ -1,0 +1,10 @@
+.profile {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  border-radius: 5px;
+  padding: 20px;
+  background-size: cover;
+}
+.profileName {
+  color: #6366f1;
+  font-family: 'roboto';
+}
