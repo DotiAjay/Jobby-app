@@ -5,6 +5,7 @@ import Header from '../Header'
 import Profile from '../profile'
 import SalaryRange from '../SalaryRange'
 import EmploymentType from '../EmploymentType'
+import LocationType from '../Location'
 import {FaSearch} from 'react-icons/fa'
 import Loader from 'react-loader-spinner'
 import './index.css'
@@ -25,6 +26,28 @@ const employmentTypesList = [
   {
     label: 'Internship',
     employmentTypeId: 'INTERNSHIP',
+  },
+]
+const loacationList = [
+  {
+    locationId: 'Hyderabad',
+    label: 'Hyderabad',
+  },
+  {
+    locationId: 'Delhi',
+    label: 'Delhi',
+  },
+  {
+    locationId: 'Bangalore',
+    label: 'Bangalore',
+  },
+  {
+    locationId: 'Chennai',
+    label: 'Chennai',
+  },
+  {
+    locationId: 'Mumbai',
+    label: 'Mumbai',
   },
 ]
 const salaryRangesList = [
@@ -59,6 +82,7 @@ class JobsView extends Component {
     minimumPackage: '',
     search: '',
     apiStatus: ApiConst.loading,
+    LocationType: [],
   }
   componentDidMount() {
     this.getJobs()
@@ -75,6 +99,18 @@ class JobsView extends Component {
       this.getJobs,
     )
   }
+
+  renderJobLocation = type => {
+    
+    const {LocationType} = this.state
+    this.setState({apiStatus: ApiConst.loading})
+    const location = [...LocationType, type]
+    this.setState(
+      {LocationType: location, apiStatus: ApiConst.success},
+      this.getJobs,
+    )
+  }
+
   renderSerchList = () => {
     const {jobList, userSearchInput} = this.state
     this.setState({apiStatus: ApiConst.loading})
@@ -100,10 +136,14 @@ class JobsView extends Component {
   }
 
   getJobs = async () => {
-    const {minimumPackage, search, employmentType} = this.state
+    const {minimumPackage, search, employmentType,LocationType} = this.state
     const val = employmentType.join()
+    
+    const v = LocationType.join() 
+    console.log(v)
 
-    const url = `https://apis.ccbp.in/jobs?employment_type=${val}&minimum_package=${minimumPackage}&search=${search}`
+    const url = `https://apis.ccbp.in/jobs?employment_type=${val}&minimum_package=${minimumPackage}&search=${search}&
+location=${v}`
     const jwtToken = Cookies.get('jwtToken')
     const options = {
       method: 'GET',
@@ -112,8 +152,9 @@ class JobsView extends Component {
       },
     }
     const response = await fetch(url, options)
+    const data = await response.json()
+    console.log(data)
     if (response.ok === true) {
-      const data = await response.json()
       const updatedData = data.jobs.map(each => ({
         companyLogoUrl: each.company_logo_url,
 
@@ -169,6 +210,18 @@ class JobsView extends Component {
                     salarydetails={each}
                     key={each.salaryRangeId}
                     OnselectSalaryRange={this.OnselectSalaryRange}
+                  />
+                ))}
+              </ul>
+              <hr />
+              <h1>Location</h1>
+              <ul type="none">
+                {loacationList.map(each => (
+                  <LocationType
+                    LocationTypeDetails={each}
+                    locationId
+                    key={each.locationId}
+                    renderJobLocation={this.renderJobLocation}
                   />
                 ))}
               </ul>

@@ -2,9 +2,9 @@ import Header from '../Header'
 import './index.css'
 
 const Home = () => {
-  const FindJobs =() => {
- const {history} = props 
-   history.replace('/jobs')
+  const FindJobs = () => {
+    const {history} = props
+    history.replace('/jobs')
   }
   return (
     <div className="HomeContainer">
@@ -16,7 +16,9 @@ const Home = () => {
           Millions of people are searching for jobs, salary information,company
           reviews. Find the job that fits your abitlites abd potential
         </p>
-        <button className="HomeJobsBut" onClick={FindJobs}>Find Jobs</button>
+        <button className="HomeJobsBut" onClick={FindJobs}>
+          Find Jobs
+        </button>
       </div>
     </div>
   )
