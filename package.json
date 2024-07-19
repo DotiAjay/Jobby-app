@@ -1,6 +1,6 @@
 {
   "name": "jobby-app",
-  "private": true,
+  "private": 'tr',
   "version": "1.0.0",
   "engines": {
    "node": "20.x"
